@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <!-- Bootstrap -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    
+    <!-- PyScript -->
+    <link rel="stylesheet" href="https://pyscript.net/releases/2025.7.3/core.css">
+    <script type="module" src="https://pyscript.net/releases/2025.7.3/core.js"></script>
+    
+    <title>Intramurals Eligibility Checker</title>
+
+    <style>
+        body {
+            background: linear-gradient(135deg, #dcfedb, #f0f9ff);
+            font-family: 'Segoe UI', Tahoma, sans-serif;
+        }
+
+        .main-card {
+            max-width: 520px;
+            border-radius: 20px;
+            padding: 30px;
+        }
+        
+        .header-bar {
+            height: 60px;
+            background: linear-gradient(90deg, #022c22, #065f46);
+            box-shadow: 0 4px 12px rgba(0,0,0,0.25);
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            z-index: 1000;
+            color: #ecfdf5;
+        }
+
+        .nav-btn {
+            background: linear-gradient(90deg, #10b981, #34d399);
+            color: #022c22;
+            border-radius: 14px;
+            font-weight: 600;
+            margin-left: 8px;
+            border: none;
+            padding: 6px 14px;
+        }
+
+        .nav-btn:hover {
+            opacity: 0.9;
+            transform: scale(1.05);
+        }
+
+        .title {
+            font-weight: 700;
+            color: #1e8a3e;
+        }
+
+        .subtitle {
+            font-size: 0.9rem;
+            color: #648b69;
+        }
+
+        .form-label {
+            font-weight: 600;
+        }
+
+        .btn-primary {
+            border-radius: 30px;
+            padding: 10px;
+            font-weight: 600;
+        }
+
+        #image img {
+            border-radius: 15px;
+            box-shadow: 0 8px 20px rgba(0,0,0,0.15);
+        }
+    </style>
+</head>
+
+<body class="d-flex justify-content-center align-items-center vh-100">
+
+    <!-- HEADER -->
+    <header class="header-bar d-flex justify-content-between align-items-center px-4">
+        <h6 class="m-0 fw-bold">Intramurals SY 2025-2026</h6>
+        <div>
+            <a href="index.html"><button class="btn nav-btn">Sign Up</button></a>
+            <a href="team.html"><button class="btn nav-btn">Team Checker</button></a>
+            <a href="players.html"><button class="btn nav-btn">Players</button></a>
+        </div>
+    </header>
+    
+    <div class="card main-card shadow-lg text-center">
+        <h3 class="title">Intramurals Checker</h3>
+        <p class="subtitle mb-4">Check if you're eligible to join this year's Intramurals</p>
+
+        <form>
+            <div class="mb-3 text-start">
+                <label class="form-label">Online Registration</label><br>
+                <input type="radio" name="registration" value="registered"> Yes  
+                <input type="radio" name="registration" value="notRegistered" class="ms-3"> No
+            </div>
+
+            <div class="mb-3 text-start">
+                <label class="form-label">Medical Clearance</label><br>
+                <input type="radio" name="clearance" value="cleared"> Yes  
+                <input type="radio" name="clearance" value="notCleared" class="ms-3"> No
+            </div>
+
+            <div class="mb-3 text-start">
+                <label class="form-label">Grade Level</label>
+                <select id="level" class="form-select mb-2">
+                    <option value="7">Grade 7</option>
+                    <option value="8">Grade 8</option>
+                    <option value="9">Grade 9</option>
+                    <option value="10">Grade 10</option>
+                </select>
+
+                <label class="form-label">Section</label>
+                <select id="section" class="form-select">
+                    <option value="emerald">Emerald</option>
+                    <option value="ruby">Ruby</option>
+                    <option value="sapphire">Sapphire</option>
+                    <option value="topaz">Topaz</option>
+                </select>
+            </div>
+
+            <div class="d-grid mt-4">
+                <input type="button" value="Check Eligibility" py-click="intrams_checker" class="btn btn-primary">
+            </div>
+        </form>
+
+        <div id="output" class="mt-4 fw-bold"></div>
+        <div id="image" class="mt-3"></div>
+    </div>
+
+    <py-script src="main2.py"></py-script>
+</body>
+</html>
